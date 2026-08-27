@@ -60,9 +60,15 @@
         }
 
         .layer2 {
+<<<<<<< HEAD
             background: #2563eb;
             top: 6%;
             left: 6%;
+=======
+            background: red;
+            top: 30px;
+            left: 30px;
+>>>>>>> f0f1f7a942cc0560295cd3944435851f086c21e9
             z-index: 2;
             animation-delay: 160ms;
         }
