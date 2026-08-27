@@ -6,67 +6,107 @@
     <title>5 Camadas</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #f0f0f0;
+            overflow: hidden;
+            font-family: "Trebuchet MS", sans-serif;
+            background: linear-gradient(135deg, #071a2b, #164e63 55%, #22d3ee);
         }
 
         .container {
             position: relative;
-            width: 500px;
-            height: 500px;
+            width: min(88vw, 500px);
+            aspect-ratio: 1;
+            filter: drop-shadow(0 24px 28px rgb(0 0 0 / 35%));
         }
 
         .layer {
             position: absolute;
-            width: 300px;
-            height: 300px;
-            border: 2px solid #000;
+            width: 60%;
+            height: 60%;
+            border: 2px solid rgb(255 255 255 / 65%);
+            border-radius: 18px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 24px;
+            font-size: clamp(14px, 3.5vw, 24px);
             font-weight: bold;
             color: white;
+            text-shadow: 0 2px 3px rgb(0 0 0 / 30%);
+            box-shadow: inset 0 1px rgb(255 255 255 / 35%), 0 8px 16px rgb(0 0 0 / 18%);
+            animation: reveal 700ms both;
+            transition: transform 180ms ease, filter 180ms ease;
+        }
+
+        .layer:hover {
+            transform: translate(-5px, -5px) scale(1.02);
+            filter: brightness(1.12);
         }
 
         .layer1 {
-            background: red;
+            background: #ef4444;
             top: 0;
             left: 0;
             z-index: 1;
+            animation-delay: 80ms;
         }
 
         .layer2 {
-            background: blue;
-            top: 30px;
-            left: 30px;
+            background: #2563eb;
+            top: 6%;
+            left: 6%;
             z-index: 2;
+            animation-delay: 160ms;
         }
 
         .layer3 {
-            background: green;
-            top: 60px;
-            left: 60px;
+            background: #16a34a;
+            top: 12%;
+            left: 12%;
             z-index: 3;
+            animation-delay: 240ms;
         }
 
         .layer4 {
-            background: orange;
-            top: 90px;
-            left: 90px;
+            background: #ea580c;
+            top: 18%;
+            left: 18%;
             z-index: 4;
+            animation-delay: 320ms;
         }
 
         .layer5 {
-            background: purple;
-            top: 120px;
-            left: 120px;
+            background: #7c3aed;
+            top: 24%;
+            left: 24%;
             z-index: 5;
+            animation-delay: 400ms;
+        }
+
+        @keyframes reveal {
+            from {
+                opacity: 0;
+                transform: translateY(18px) scale(.94);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .layer {
+                animation: none;
+                transition: none;
+            }
         }
     </style>
 </head>
